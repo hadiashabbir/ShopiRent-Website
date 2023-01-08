@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    background-color: #314E52;
+    --bs-navbar-toggler-border-color:  transparent !important;
+    --bs-navbar-toggler-focus-width: 0 !important;
+}
+
+.nav-link{
+    --bs-nav-link-color: #e7e6e1; 
+    --bs-nav-link-hover-color: #f2a154
+}
+
+.navbar-nav .show > .nav-link, .navbar-nav .nav-link.active {
+    color: #f2a154 !important;
+}
+
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+    justify-content: start !important;
+}
+
+.navbar-expand-md .navbar-nav {
+    justify-content: center;
+}
+
+.btn-outline-success{
+    --bs-btn-color: #e7e6e1 !important;
+    --bs-btn-border-color: #f2a154 !important;
+    --bs-btn-hover-color: #f2a154 !important;
+    --bs-btn-hover-bg: transparent !important;
+    --bs-btn-hover-border-color: #f2a154 !important;
+}
+
+.header-button{
+    margin-left: auto;
+    margin-right: 4rem;
+    --bs-btn-font-size: 0.9rem !important;
+    --bs-btn-border-width: 3px !important;
+}
+
+.navbar-toggler{
+    justify-content: end;
+}

@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main-div{
+    background-color: #314E52;
+    height: 90vh;
+}
+
+h1{
+    overflow: hidden;
+}
+
+.main-text{
+    color: #e7e6e1;
+    line-height: 120%;
+    letter-spacing: 2px;
+}
+
+.display-3{
+    font-weight: 400 !important;
+}
+
+.sub-text{
+    color: #e7e6e1;
+}
+
+.btn-primary{
+    --bs-btn-color: #e7e6e1 !important;
+    --bs-btn-bg: #f2a154 !important;
+    --bs-btn-border-color: #f2a154 !important;
+    --bs-btn-hover-color: #e7e6e1 !important;
+    --bs-btn-hover-bg: #f2a154 !important;
+    --bs-btn-hover-border-color: #f2a154 !important;
+    --bs-btn-active-color: #e7e6e1 !important;
+    --bs-btn-active-bg: #f2a154 !important;
+    --bs-btn-active-border-color: #f2a154 !important;
+}
+
+.btn-lg{
+    --bs-btn-padding-x: 2rem !important;
+}
+
+.btn{
+    --bs-btn-font-size: 1.2rem !important;
+}
+
+.redgirl{
+    margin-top: 7rem;
+    border-radius: 45% 45% 0 0;
+}
+
+.photo{
+    position: relative;
+    left: -9%;
+    z-index: 1;
+}
+
+.text-div{
+    z-index: 0;
+}
+
+.comment{
+    margin-top: 5.5rem !important;
+    background-color: #e7e6e1;
+    height: 7rem;
+    width: 100%;
+    border-radius: 7%;
+}
+
+.third-div{
+    position: relative;
+    left: -6%;
+    z-index: 4;
+}
+
+.display-4{
+    overflow: hidden;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.lead{
+    margin: 0;
+    padding-top: 5px;
+    font-size: 0.9rem !important;
+    font-style: italic;
+    color: dimgray;
+}
+
+.star{
+    color: #f2a154;
+}
+
+.shopping{
+    overflow: hidden;
+    margin-top: 4.3rem !important;
+    height: auto;
+    width: 60%;
+    border-radius: 50px;   
+}
