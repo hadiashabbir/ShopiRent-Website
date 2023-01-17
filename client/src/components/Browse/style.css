@@ -1,0 +1,95 @@
+@media screen and (min-width: px) {
+    .main-browse-div{
+        z-index: 0;
+        overflow: hidden;
+        height: 150vh;
+    }        
+}
+
+@media screen and (min-width: 0px) {
+    .main-browse-div::before{
+        overflow-y: hidden !important;
+        height: 210vh;
+        border-radius: 50%;
+        position: absolute;
+        background-color: #314E52;
+        right: -700px;
+        left: -700px;
+        top: -200px;
+        content: '';
+        bottom: 0;    
+    }    
+}
+
+@media screen and (min-width: 770px) {
+    .main-browse-div::before{
+        overflow-y: hidden !important;
+        height: 160vh;
+        border-radius: 50%;
+        position: absolute;
+        background-color: #314E52;
+        right: -700px;
+        left: -700px;
+        top: -200px;
+        content: '';
+        bottom: 0;    
+    }    
+}
+
+.sub-container{
+    background-color: rgb(255, 255, 255, 0.4);
+}
+
+@media screen and (min-width: 0px) {
+    .sub-container{
+        height: 120vh;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .sub-container{
+        height: 70vh;
+    }
+}
+
+.summer{
+    color: rgb(75, 73, 73);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.resolution{
+    color: rgb(75, 73, 73);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+@media screen and (min-width: 0px) {
+    .businessman{
+        height: 100%;
+        width: 80%;
+        padding-bottom: 3rem;
+    }    
+}
+
+@media screen and (min-width: 768px) {
+    .businessman{
+        height: 100%;
+        width: 100%;
+        padding-bottom: 0;
+    }    
+}
+
+.filter-button{
+    background-color: transparent;
+    padding: 3px 15px 3px 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid #e7e6e1;
+    font-size: 1rem;
+    color: rgb(22, 22, 22);
+}
+
+.posts-grid{
+    margin-top: 2rem;
+}

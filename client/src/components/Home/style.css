@@ -5,8 +5,22 @@
 }
 
 .main-div{
+    z-index: 0;
+    overflow: hidden;
+    height: 130vh;
+}
+
+.main-div::before{
+    overflow-y: hidden !important;
+    height: 180vh;
+    border-radius: 50%;
+    position: absolute;
     background-color: #314E52;
-    height: 90vh;
+    right: -700px;
+    left: -700px;
+    top: -200px;
+    content: '';
+    bottom: 0;    
 }
 
 h1{
@@ -43,19 +57,23 @@ h1{
     --bs-btn-padding-x: 2rem !important;
 }
 
-.btn{
-    --bs-btn-font-size: 1.2rem !important;
-}
-
 .redgirl{
     margin-top: 7rem;
     border-radius: 45% 45% 0 0;
 }
 
-.photo{
-    position: relative;
-    left: -9%;
-    z-index: 1;
+@media screen and (min-width: 960px) {
+    .photo{
+        position: relative;
+        left: -8%;
+        z-index: 1;
+    }    
+}
+
+@media screen and (max-width: 992px) {
+    .third-div{
+        display: none;
+    }
 }
 
 .text-div{
@@ -96,10 +114,148 @@ h1{
     color: #f2a154;
 }
 
-.shopping{
+@media screen and (min-width: 960px) {
+    .first-badge{
+        --bs-badge-padding-x: 1em !important;
+        --bs-badge-padding-y: 0.5em !important;
+        --bs-badge-font-size: 0.6em !important;
+        --bs-badge-font-weight: 300 !important;
+    }    
+}
+
+@media screen and (min-width: 1200px) {
+    .first-badge{
+        --bs-badge-padding-x: 1em !important;
+        --bs-badge-padding-y: 0.7em !important;
+        --bs-badge-font-size: 0.8em !important;
+        --bs-badge-font-weight: 400 !important;
+    }    
+}
+
+.css-ptiqhd-MuiSvgIcon-root{
+    fill: #f2a154 !important;
+}
+
+.shopping-pic{
     overflow: hidden;
-    margin-top: 4.3rem !important;
     height: auto;
-    width: 60%;
-    border-radius: 50px;   
+    width: 100%;
+    border-radius: 20px;
+}
+
+.overlap{
+    z-index: 5;
+}
+
+.overlapping{
+    position: relative;
+    left: -65px;
+    z-index: 0;
+}
+
+.shipping-overlap{
+    position: relative;
+    top: -45px;
+    z-index: 5;
+}
+
+.overlap-support{
+    position: relative;
+    top: -23px;
+    z-index: 0;
+}
+
+.support{
+    z-index: 10;
+}
+
+@media screen and (min-width: 10px) {
+    .collection-heading{
+        color: #e7e6e1;
+        position: relative;
+        overflow-y: hidden;
+        z-index: 100;
+        top: -1rem;
+    }
+}
+
+
+@media screen and (min-width: 576px) {
+    .collection-heading{
+        color: #e7e6e1;
+        position: relative;
+        overflow-y: hidden;
+        z-index: 100;
+        top: -12rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .collection-heading{
+        color: #e7e6e1;
+        position: relative;
+        overflow-y: hidden;
+        z-index: 100;
+        top: -12rem;
+    }
+}
+
+@media screen and (min-width: 150px) {
+    .collections{
+        position: relative;
+        top: 0em;
+    }            
+}
+
+
+@media screen and (min-width: 576px) {
+    .collections{
+        position: relative;
+        top: -9em;
+    }            
+}
+
+.card-link{
+    color: #f2a154 !important;
+}
+
+.woman-coat{
+    border-radius: 45% 45% 0 0;   
+}
+
+
+@media screen and (min-width: 720px) {
+    .second-badge{
+        --bs-badge-padding-x: 1em !important;
+        --bs-badge-padding-y: 0.5em !important;
+        --bs-badge-font-size: 0.6em !important;
+        --bs-badge-font-weight: 300 !important;
+    }    
+}
+
+@media screen and (min-width: 960px) {
+    .second-badge{
+        --bs-badge-padding-x: 1em !important;
+        --bs-badge-padding-y: 0.7em !important;
+        --bs-badge-font-size: 0.8em !important;
+        --bs-badge-font-weight: 400 !important;
+    }    
+}
+
+@media screen and (max-width: 767px) {
+    .shopping-div{
+        display: none;
+    }
+}
+
+.shopping-pic2{
+    overflow: hidden;
+    height: auto;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.sub-div {
+    background: #314E52;
+    border-radius: 50%/100px 100px 0 0;
 }

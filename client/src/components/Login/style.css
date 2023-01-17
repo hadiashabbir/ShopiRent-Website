@@ -28,7 +28,7 @@
     overflow: hidden;
     height: 87vh !important;
     width: 50vw !important;
-    background-color: #61888d;
+    background-color: rgb(255, 255, 255, 0.4);
     border-radius: 5%;
 }
 

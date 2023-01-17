@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Asset_3 from "../../assets/Asset_3.png";
 import "./style.css";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-dark navbar-expand-md">
+    <nav className="navbar navbar-dark navbar-expand-md header-nav">
       <div className="container-fluid">
       <div className="col-md-2 col-sm-3 col-4  offset-1">
           <img
@@ -29,24 +30,24 @@ const Header = () => {
         <div class="col-md-12 collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="col-md-6 navbar-nav mb-2 mb-lg-0">
             <li className="nav-item">
-          <a href="#" className="nav-link active px-lg-3 px-xl-4 offset-1 offset-md-0">
+          <Link to="/" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
+          <Link to="/browse" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
             Browse
-          </a>
+          </Link>
         </li>
           <li className="nav-item">
-          <a href="#" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
+          <Link to="/" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
             Service Us
-          </a>
+          </Link>
           </li>
           <li className="nav-item">
-          <a href="#" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
+          <Link to="/" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
             About Us
-          </a>
+          </Link>
           </li>
           <li className="nav-item">
           <a href="#" className="nav-link px-lg-3 px-xl-4 offset-1 offset-md-0">
