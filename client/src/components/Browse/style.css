@@ -81,15 +81,46 @@
 }
 
 .filter-button{
-    background-color: transparent;
-    padding: 3px 15px 3px 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border: 1px solid #e7e6e1;
-    font-size: 1rem;
-    color: rgb(22, 22, 22);
+    padding: 0.15rem 0.7rem 0.15rem 0.7rem !important;
 }
 
 .posts-grid{
     margin-top: 2rem;
 }
+
+.offcanvas.offcanvas-start{
+    background-color: rgb(49, 78, 82, 0.92);
+}
+
+.sub-category:hover{
+    color: #f2a154;
+    cursor: pointer;
+}
+
+.form-check-input:checked[type=radio] {
+    background-image: none !important;
+}
+
+.form-check-input:checked {
+    border-color: #f2a154 !important;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(167, 165, 165);
+    border-radius: 50px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(138, 136, 136);
+  }

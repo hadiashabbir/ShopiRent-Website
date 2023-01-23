@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import "./style.css";
+
 import Asset_3 from "../../assets/Asset_3.png";
-import { Tabs, Tab, Box } from "@mui/material";
+
 import IconButton from '@mui/material/IconButton';
+import { Tabs, Tab, Box } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+import "./style.css";
 
 const initialState = {
   fullName: "",

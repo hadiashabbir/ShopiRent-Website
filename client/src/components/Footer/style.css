@@ -12,3 +12,12 @@
 .footer{
     background-color: #f7f6e7;
 }
+
+.links{
+    text-decoration: none;
+    color: black;
+}
+
+.links:hover{
+    color: #f2a154
+}

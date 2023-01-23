@@ -1,6 +1,9 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
+
 import Asset_3 from "../../assets/Asset_3.png";
+
 import "./style.css";
 
 const Header = () => {
