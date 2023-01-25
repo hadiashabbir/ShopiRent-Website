@@ -51,7 +51,7 @@ const Login = () => {
 
   return (
     <div className="back">
-      <div className="row d-flex mt-4 align-items-center">
+      <div className="row d-flex pt-4 align-items-center">
         <div className="col-4 offset-1">
           <img
             src={Asset_3}

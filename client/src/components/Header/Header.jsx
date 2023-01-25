@@ -59,12 +59,14 @@ const Header = () => {
           </li>
         </ul>
         <div className="col-md-3 offset-1">
+          <Link to='/login'>
           <button
             class="btn btn-outline-success header-button px-xl-4 py-1 px-md-3"
             type="button"
             >
             Sign In
           </button>
+          </Link>
         </div>
         </div>
       </div>
