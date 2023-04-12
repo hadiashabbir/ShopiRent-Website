@@ -8,22 +8,20 @@ import Browse from "./components/Browse/Browse";
 import Cart from "./components/Cart/Cart";
 
 import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
+
 import PostDetail from "./components/PostDetail/PostDetail";
 import Checkout from "./components/Checkout/Checkout";
 import Contact from "./components/Contact/Contact";
+import HideHeader from './HideHeader';
 
 
-function App(props) {
+function App() {
   
   return (
     <BrowserRouter>
-    {/* const location = useLocation(); */}
-    {/* {
-      location.pathname == '/login'? null : <Header/>
-    } */}
     <Header/>
     <Routes>
-    <Route path='/' element={<Home />}/>
+      <Route path='/' element={<Home />}/>
       <Route path='/browse' element={<Browse/>}/>  
       <Route path='/browse/:id' element={<PostDetail/>}/>  
       <Route path='/login' element={<Login/>}/>  
@@ -32,9 +30,6 @@ function App(props) {
       <Route path='/contact' element={<Contact/>}/> 
     </Routes>
     <Footer/>
-    {/* {
-      window.location.pathname === '/login'? null : <Footer/>
-    } */}
     </BrowserRouter>
   );
 }

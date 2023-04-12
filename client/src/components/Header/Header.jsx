@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Asset_3 from "../../assets/Asset_3.png";
 
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import "./style.css";
 
 const Header = () => {
@@ -59,6 +61,9 @@ const Header = () => {
           </li>
         </ul>
         <div className="col-md-3 offset-1">
+          <Link to='/cart' style={{textDecoration: 'none' , color: 'white'}}> 
+          <ShoppingCartIcon fontSize="medium" style={{marginLeft: 'auto', marginRight: '1.4rem'}}/>
+          </Link>
           <Link to='/login'>
           <button
             class="btn btn-outline-success header-button px-xl-4 py-1 px-md-3"

@@ -9,12 +9,9 @@ import Casuals from "../../assets/Casuals.jpg";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
-
+import { Link } from "react-router-dom";
 
 import "./style.css";
 
@@ -182,7 +179,7 @@ const PostDetail = () => {
             <div className="col-1 ms-3">
               <span class="form-check">
                 <input
-                  class="form-check-input radio-button"
+                  className="form-check-input radio-button"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -252,13 +249,15 @@ const PostDetail = () => {
 
             <div className="row text-center" style={{marginTop: '10px'}}>
               <div className="col-6">
+                <Link to='/checkout'>
               <button
               type="button"
               className="btn btn-primary btn-lg mt-4"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px', zIndex: '-1'}}
-            >
+              >
               Rent Now
             </button>            
+              </Link>
             </div>
               <div className="col-6">
               <button
@@ -353,13 +352,15 @@ const PostDetail = () => {
 
             <div className="row text-center" style={{marginTop: '10px'}}>
               <div className="col-6">
+                <Link to='/checkout'>
               <button
               type="button"
               className="btn btn-primary btn-lg"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px', zIndex: '-1'}}
-            >
+              >
               Buy Now
             </button>            
+              </Link>
             </div>
               <div className="col-6">
               <button

@@ -19,6 +19,8 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import StarIcon from "@mui/icons-material/Star";
 
+import { Link } from "react-router-dom";
+
 import "./style.css";
 
 const Home = () => {
@@ -42,9 +44,11 @@ const Home = () => {
             <br />
             any occasion.
           </p>
+          <Link to='/browse'>
           <button type="button" class="btn btn-primary btn-lg">
             Rent Now
           </button>
+          </Link>
         </div>
         <div className="col-8 offset-2 offset-sm-0 text-center col-sm-5 col-md-4 col-lg-3 col-xl-3 photo">
           <img
@@ -127,9 +131,9 @@ const Home = () => {
               <p className="card-text">
                 This product is very well designed and suitable for everyone
               </p>
-              <a href="#" className="card-link">
+              <Link to="/browse" className="card-link">
                 View All Products
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -144,9 +148,9 @@ const Home = () => {
               <p className="card-text">
                 This product is very well designed and suitable for everyone
               </p>
-              <a href="#" className="card-link">
+              <Link to="/browse" className="card-link">
                 View All Products
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -161,9 +165,9 @@ const Home = () => {
               <p className="card-text">
                 This product is very well designed and suitable for everyone
               </p>
-              <a href="#" className="card-link">
+              <Link to="/browse" className="card-link">
                 View All Products
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -255,13 +259,15 @@ const Home = () => {
             <br />
             Republic WomenSwear, Suffuse, and more.
           </p>
+          <Link to='/browse'>
           <button
             type="button"
             className="btn btn-primary btn-lg mt-4"
             style={{ fontSize: "1.4rem" }}
-          >
+            >
             Rent Now
           </button>
+            </Link>
         </div>
 
         <div className="col-3 col-lg-2 offset-lg-1">
@@ -406,13 +412,15 @@ const Home = () => {
               <br />
               accessories to many occasions
             </p>
+            <Link to='/browse'>
             <button
               type="button"
               className="btn btn-primary btn-lg mt-4"
               style={{ fontSize: "1.4rem" }}
-            >
+              >
               Rent Now
             </button>
+              </Link>
           </div>
 
           <div className="col-6 shopping-div">

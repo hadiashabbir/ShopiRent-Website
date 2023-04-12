@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.css";
+
 const Checkout = () => {
   return (
     <>
@@ -12,8 +14,8 @@ const Checkout = () => {
         </div>
       </div>
       <form>
-      <div className="row mt-4 mb-5">
-        <div className="col-5 offset-1">
+        <div className="row mt-4 mb-5">
+          <div className="col-5 offset-1">
             <div className="row mb-4">
               <div className="col-6">
                 <label htmlFor="first-name" className="form-label">
@@ -69,7 +71,9 @@ const Checkout = () => {
                   <option selected>Select Province</option>
                   <option value="sindh">Sindh</option>
                   <option value="punjab">Punjab</option>
-                  <option value="Khyber Pakhtoon Khawan">Khyber Pakhtoon Khawan</option>
+                  <option value="Khyber Pakhtoon Khawan">
+                    Khyber Pakhtoon Khawan
+                  </option>
                   <option value="Balouchistan">Balouchistan</option>
                   <option value="Gilgit Baltistan">Gilgit Baltistan</option>
                 </select>{" "}
@@ -114,20 +118,62 @@ const Checkout = () => {
                 />
               </div>
             </div>
-        </div>
-        <div className="col-5 offset-1">
-          <label className="form-label" htmlFor="SelectPaymentMethod">Select Payment Method</label>
-          <div className="form-check">
-            <input className="form-check-input" type='radio' id="radio1" />
-            <label className="form-check-label" htmlFor="radio1">Jazzcash</label>
           </div>
-          <div className="form-check">
-            <input className="form-check-input" type='radio' id="radio1" />
-            <label className="form-check-label" htmlFor="radio1">Easypaisa</label>
+          <div className="col-4 offset-1">
+            <label className="form-label" htmlFor="SelectPaymentMethod">
+              Select Payment Method
+            </label>
+            <div class="form-check mb-2">
+              <input
+                class="form-check-input radio-button"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Jazzcash
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input radio-button"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Easypaisa
+              </label>
+            </div>
+            <div className="row mt-4">
+              <div className="col-9">
+                <label htmlFor="address" className="form-label">
+                  Phone Number
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Phone Number"
+                  aria-label="input"
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-9">
+              <button
+              type="button"
+              className="btn btn-primary mt-4"
+              style={{ fontSize: "1rem" , padding: '2px 10px 2px 10px'}}
+              >
+              Confirm Order
+            </button>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
-          </form>
+      </form>
     </>
   );
 };

@@ -7,6 +7,8 @@ import { Tabs, Tab, Box } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
+import { Link } from "react-router-dom";
+
 import "./style.css";
 
 const initialState = {
@@ -64,21 +66,25 @@ const Login = () => {
         <div className="col-sm-2 offset-sm-4 col-3 offset-3 text-end">
           {value == "one" ? (
             <>
+            <Link to='\'>
               <button
                 class="btn btn-outline-success py-0 py-sm-1 py-md-1 px-1 px-sm-2 px-md-3 px-lg-4"
                 type="button"
-              >
+                >
                 Sign Up
               </button>
+            </Link>
             </>
           ) : (
             <>
+            <Link to='\'>
               <button
                 class="btn btn-outline-success py-0 py-sm-1 py-md-2 px-1 px-sm-2 px-md-3 px-lg-4"
                 type="button"
               >
                 Login
               </button>
+              </Link>
             </>
           )}
         </div>
@@ -206,9 +212,11 @@ const Login = () => {
                 <span className="col-9 col-sm-8 col-md-8 col-xl-6 text-center">
                   {value == "one" ? (
                     <>
+                    <Link to='/'>
                       <button type="submit" class="btn btn-primary btn-lg">
                         Login
                       </button>
+                    </Link>
                     </>
                   ) : (
                     <>
