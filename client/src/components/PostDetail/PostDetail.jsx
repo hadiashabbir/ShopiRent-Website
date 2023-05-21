@@ -14,6 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 
 import "./style.css";
+import Header from "../Header/Header";
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -101,6 +102,7 @@ const PostDetail = () => {
 
   return (
     <>
+    <Header/>
     <div className="row mt-5 mb-5">
       <div className="col-10 col-md-5 col-lg-6 offset-1">
         <img

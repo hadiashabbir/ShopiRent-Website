@@ -19,6 +19,8 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import StarIcon from "@mui/icons-material/Star";
 
+import Header from "../Header/Header";
+
 import { Link } from "react-router-dom";
 
 import "./style.css";
@@ -26,6 +28,7 @@ import "./style.css";
 const Home = () => {
   return (
     <>
+    <Header/>
       <div className="row main-div" style={{ overflow: "hidden" }}>
         <div className="col-8 text-center text-sm-start offset-2 col-sm-5 offset-sm-1 mt-5 text-div">
           <h1 className="main-text display-3  ">

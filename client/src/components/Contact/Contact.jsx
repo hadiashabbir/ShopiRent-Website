@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import PlaceIcon from '@mui/icons-material/Place';
 import CallIcon from '@mui/icons-material/Call';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import Header from '../Header/Header';
 
 const initialState = {
     name: '',
@@ -20,7 +21,9 @@ const Contact = () => {
         console.log(formData)
     }
 
-  return (
+    return (
+        <>
+        <Header/>
     <div className='row mt-5 mb-5'>
         <div className='col-10 offset-1'>
             <h2 className='text-center'>Get In Touch With Us</h2>
@@ -101,6 +104,7 @@ const Contact = () => {
 
 
     </div>
+        </>
   )
 }
 

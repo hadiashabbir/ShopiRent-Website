@@ -1,10 +1,12 @@
 import React from "react";
 
 import "./style.css";
+import Header from "../Header/Header";
 
 const Checkout = () => {
   return (
     <>
+    <Header/>
       <div className="row mt-5">
         <div className="col-5 offset-1">
           <h3>Checkout Details</h3>

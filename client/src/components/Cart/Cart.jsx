@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CallIcon from '@mui/icons-material/Call';
 
 import './style.css';
+import Header from "../Header/Header";
 
 const Cart = () => {
   const [subTotal, setSubTotal] = useState(null);
@@ -103,6 +104,8 @@ const Cart = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div className="row mt-5 mb-5">
       <div className="offset-1 col-10 col-lg-7">
         <div className="card" style={{borderRadius: '0'}}>
@@ -185,6 +188,7 @@ const Cart = () => {
           </div>
       </div>
     </div>
+    </>
   );
 };
 

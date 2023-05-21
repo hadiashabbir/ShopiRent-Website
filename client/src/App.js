@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect, useState} from "react";
 
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -6,6 +6,7 @@ import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Browse from "./components/Browse/Browse";
 import Cart from "./components/Cart/Cart";
+import Profile from "./components/Profile/Profile";
 
 import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 
@@ -16,10 +17,9 @@ import HideHeader from './HideHeader';
 
 
 function App() {
-  
+
   return (
     <BrowserRouter>
-    <Header/>
     <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='/browse' element={<Browse/>}/>  
@@ -28,6 +28,8 @@ function App() {
       <Route path='/cart' element={<Cart/>}/> 
       <Route path='/checkout' element={<Checkout/>}/> 
       <Route path='/contact' element={<Contact/>}/> 
+      <Route path='/profile' element={<Profile/>}/> 
+
     </Routes>
     <Footer/>
     </BrowserRouter>

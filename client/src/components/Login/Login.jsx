@@ -7,7 +7,9 @@ import { Tabs, Tab, Box } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-import { Link } from "react-router-dom";
+import  axios  from "axios";
+
+import {useNavigate } from "react-router-dom";
 
 import "./style.css";
 
@@ -15,6 +17,8 @@ const initialState = {
   fullName: "",
   email: "",
   password: "",
+  phone: "",
+  address: ""
 };
 
 const loginState = {
@@ -23,6 +27,7 @@ const loginState = {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
   const [value, setValue] = useState("one");
   const [data, setData] = useState(initialState);
   const [loginData, setLoginData] = useState(loginState);
@@ -32,12 +37,65 @@ const Login = () => {
     setValue(newValue);
   };
 
-  const handleSubmit = (e) => {
+  const LoginPostData = async () => {
+    axios
+      .post(
+        'https://4980-119-160-98-57.ngrok-free.app',
+        {
+          username: loginData.email,
+          password: loginData.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((response) => {
+        navigate("/");
+        localStorage.setItem("data", response.data)
+      })
+      .catch((error) => {
+        console.error(error)
+})
+}
+
+const SignupPostData = async () => {
+  axios
+    .post(
+      'https://4980-119-160-98-57.ngrok-free.app',
+      {
+        username: data.email,
+        password: data.password,
+        name: data.fullName,
+        phone: data.phone, 
+        address: data.address
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    .then((response) => {
+      setValue("one");
+      navigate("/login");
+    })
+    .catch((error) => {
+      console.error(error)
+})
+}
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    LoginPostData();
+  };
+
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    console.log(loginData);
-    alert("Hello");
-  };
+    SignupPostData();
+  }
 
   const handleShowPassword = () => {
     var id = document.getElementById("Password");
@@ -63,7 +121,7 @@ const Login = () => {
             width="150px"
           />
         </div>
-        <div className="col-sm-2 offset-sm-4 col-3 offset-3 text-end">
+        {/* <div className="col-sm-2 offset-sm-4 col-3 offset-3 text-end">
           {value == "one" ? (
             <>
             <Link to='\'>
@@ -87,10 +145,10 @@ const Login = () => {
               </Link>
             </>
           )}
-        </div>
+        </div> */}
       </div>
 
-      <div className="container">
+      <div className="container mt-3">
         <div className="row mt-3">
           <div className="col-10 offset-1 offset-lg-2 col-lg-8">
             <p className="main-text">Get more things done with us</p>
@@ -124,15 +182,13 @@ const Login = () => {
         <div className="row justify-content-center">
           <span className="col-10 col-md-8 col-lg-6 text-center">
             <form
-              className="mt-4 needs-validation"
-              onSubmit={handleSubmit}
-              novalidate
+              className="mt-5"
             >
               {value == "one" ? (
                 <>
                   <div class="mb-4">
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
                       id="loginEmail"
                       placeholder="Email Address"
@@ -178,7 +234,7 @@ const Login = () => {
                   </div>
                   <div class="mb-3">
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
                       id="signupEmail"
                       placeholder="Email Address"
@@ -189,7 +245,7 @@ const Login = () => {
                       }
                     />
                   </div>
-                  <div class="input-group">
+                  <div class="input-group mb-3">
                     <input
                       type="password"
                       class="form-control"
@@ -205,6 +261,32 @@ const Login = () => {
                       <IconButton onClick={handleShowPassword} size="small"><VisibilityIcon/></IconButton>
                     </span>
                   </div>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone Number"
+                      required
+                      value={data.phone}
+                      onChange={(e) =>
+                        setData({ ...data, phone: e.target.value })
+                      }
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      placeholder="Address"
+                      required
+                      value={data.address}
+                      onChange={(e) =>
+                        setData({ ...data, address: e.target.value })
+                      }
+                    />
+                  </div>
                 </>
               )}
 
@@ -212,15 +294,13 @@ const Login = () => {
                 <span className="col-9 col-sm-8 col-md-8 col-xl-6 text-center">
                   {value == "one" ? (
                     <>
-                    <Link to='/'>
-                      <button type="submit" class="btn btn-primary btn-lg">
+                      <button type="submit" class="btn btn-primary btn-lg" onClick={handleLoginSubmit}>
                         Login
                       </button>
-                    </Link>
                     </>
                   ) : (
                     <>
-                      <button type="submit" class="btn btn-primary btn-lg">
+                      <button type="submit" class="btn btn-primary btn-lg" onClick={handleSignupSubmit}>
                         Sign Up
                       </button>
                     </>
@@ -231,40 +311,6 @@ const Login = () => {
           </span>
         </div>
 
-        <div className="row justify-content-center align-items-center mt-3 mt-xl-5 gx-0">
-          <div className="col-12 col-lg-3 text-center">
-            {value == "one" ? (
-              <>
-                <label htmlFor="login" className="login-label">
-                  or login with
-                </label>
-              </>
-            ) : (
-              <>
-                <label htmlFor="sign up" className="login-label">
-                  or sign up with
-                </label>
-              </>
-            )}
-          </div>
-          <div className="col-4 col-lg-2 text-center">
-          <label htmlFor="social" className="login-label">
-              Google
-          </label>
-          </div>
-
-          <div className="col-4 col-lg-2 text-center">
-          <label htmlFor="social" className="login-label">
-              Facebook
-          </label>
-          </div>
-
-          <div className="col-4 col-lg-2 text-center">
-          <label htmlFor="social" className="login-label">
-              Twitter
-          </label>
-          </div>
-        </div>
       </div>
     </div>
   );
