@@ -40,7 +40,7 @@ const Login = () => {
   const LoginPostData = async () => {
     axios
       .post(
-        'https://4980-119-160-98-57.ngrok-free.app',
+        'https://dabf-39-42-121-170.ngrok-free.app/api/auth/login',
         {
           username: loginData.email,
           password: loginData.password,
@@ -53,7 +53,9 @@ const Login = () => {
       )
       .then((response) => {
         navigate("/");
+        localStorage.clear();
         localStorage.setItem("data", response.data)
+        localStorage.setItem("token", response.data.accessToken)
       })
       .catch((error) => {
         console.error(error)
@@ -63,7 +65,7 @@ const Login = () => {
 const SignupPostData = async () => {
   axios
     .post(
-      'https://4980-119-160-98-57.ngrok-free.app',
+      'https://dabf-39-42-121-170.ngrok-free.app/api/auth/registerbuyer',
       {
         username: data.email,
         password: data.password,

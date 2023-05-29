@@ -11,6 +11,7 @@ import wedding from "../../assets/wedding.JPG";
 import weddings from "../../assets/weddings.jpg";
 import womanCoat from "../../assets/womanCoat.jpg";
 import woman from "../../assets/woman.jpg";
+import Partywear from "../../assets/Partywear.jpg";
 
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Avatar from "@mui/material/Avatar";
@@ -143,7 +144,7 @@ const Home = () => {
 
         <div className="col-8 col-md-3">
           <div className="card">
-            <img src={weddings} alt="Party Wear" className="card-img-top" />
+            <img src={Partywear} alt="Party Wear" className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title" style={{ overflow: "hidden" }}>
                 Party Wear

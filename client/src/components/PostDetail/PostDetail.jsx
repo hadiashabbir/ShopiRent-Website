@@ -32,7 +32,8 @@ const PostDetail = () => {
   const[rangeDate, setRangeDate] = useState(new Date());
 
   const [post, setPost] = useState({
-    image: [],
+    id: 1,
+    imageURL: 'https://example.com/image.jpg',
     name: "Plain T-shirt",
     description: "Female plain T-shirt with high qaulity fabric",
     sale_price: 8000.0,
@@ -40,11 +41,12 @@ const PostDetail = () => {
     actual_price: 8900.0,
     rent_price: 2500.0,
     sale: true,
-    color: ["red", "green"],
-    sleeve: "full-sleeve",
-    brand: "limelight",
-    size: ["XS US/6", "S US/8", "M US/10", "L US/12"],
+    highlight: 'Promotions',
+    category: 'Women',
+    size: "XS",
     securityDeposit: 700.0,
+    quantity: 0,
+    number_of_items: 5
   });
 
   const handleAccordian = (div_id) => {
@@ -100,6 +102,10 @@ const PostDetail = () => {
     calculateDate(new Date(e.target.value));
   }
 
+  const setProduct = () => {
+    localStorage.setItem(id, JSON.stringify(post))
+  }
+
   return (
     <>
     <Header/>
@@ -122,18 +128,18 @@ const PostDetail = () => {
               style={{ borderRadius: "20px" }}
             />
           </div>
-          <div className="col-4" onClick={() => setImage(Casual)}>
+          <div className="col-4" onClick={() => setImage(tshirt)}>
             <img
-              src={Casual}
+              src={tshirt}
               alt="hoodie"
               width="100%"
               height="auto"
               style={{ borderRadius: "20px" }}
             />
           </div>
-          <div className="col-4" onClick={() => setImage(Casuals)}>
+          <div className="col-4" onClick={() => setImage(tshirt)}>
             <img
-              src={Casuals}
+              src={tshirt}
               alt="hoodie"
               width="100%"
               height="auto"
@@ -202,42 +208,13 @@ const PostDetail = () => {
             </div>
           </div>
 
-          <div className="card-body" id="rent" style={{ height: "300px", display: 'none' }}>
+          <div className="card-body mt-2" id="rent" style={{ height: "220px", display: 'none' }}>
             <p>
               <strong>Security Deposit:</strong>&nbsp;&nbsp;&nbsp;&nbsp;Rs.{" "}
               {post.securityDeposit}
             </p>
-            <div className="row mt-4 text-center">
-              <div className="col-6">
-                <select
-                  class="form-select mb-3"
-                  aria-label=".form-select-lg example"
-                >
-                  <option selected>{size}</option>
-                  {post.size.map((item, i) => (
-                    <option value={i + 1} onClick={() => setSize(item)}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </div>
 
-              <div className="col-6">
-                <select
-                  class="form-select mb-3"
-                  aria-label=".form-select-lg example"
-                >
-                  <option selected>{color}</option>
-                  {post.color.map((item, i) => (
-                    <option value={i + 1} onClick={() => setColor(item)}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div className="row mt-3">
+            <div className="row mt-4">
               <div className="col-6">
                 <label htmlFor="rent-date" style={{fontWeight: '500'}}>Rent Date</label>
                 <input type="date" className="date" min={new Date().toISOString().split('T')[0]} onChange={handleChangeDate}/>
@@ -249,13 +226,14 @@ const PostDetail = () => {
               </div>
             </div>
 
-            <div className="row text-center" style={{marginTop: '10px'}}>
+            <div className="row text-center mt-2" style={{marginTop: '10px'}}>
               <div className="col-6">
                 <Link to='/checkout'>
               <button
               type="button"
               className="btn btn-primary btn-lg mt-4"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px', zIndex: '-1'}}
+              onClick={setProduct}
               >
               Rent Now
             </button>            
@@ -266,6 +244,7 @@ const PostDetail = () => {
               type="button"
               className="btn btn-primary btn-lg mt-4"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px'}}
+              onClick={setProduct}
             >
               Add to Cart
             </button>            
@@ -308,7 +287,7 @@ const PostDetail = () => {
             </div>
           </div>
 
-          <div className="card-body" id="sale" style={{ height: "380px", display: 'none'}}>
+          <div className="card-body" id="sale" style={{ height: "300px", display: 'none'}}>
             <p style={{fontWeight: '500', marginTop: '1rem'}}>
               Shop with confidence
             </p>
@@ -322,7 +301,7 @@ const PostDetail = () => {
               </ul>
             </div>
             
-            <div className="row mt-4 text-center">
+            {/* <div className="row mt-4 text-center">
               <div className="col-6">
                 <select
                   class="form-select mb-3"
@@ -351,7 +330,7 @@ const PostDetail = () => {
                 </select>
               </div>
             </div>
-
+ */}
             <div className="row text-center" style={{marginTop: '10px'}}>
               <div className="col-6">
                 <Link to='/checkout'>
@@ -359,6 +338,7 @@ const PostDetail = () => {
               type="button"
               className="btn btn-primary btn-lg"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px', zIndex: '-1'}}
+              onClick={setProduct}
               >
               Buy Now
             </button>            
@@ -369,6 +349,7 @@ const PostDetail = () => {
               type="button"
               className="btn btn-primary btn-lg"
               style={{ fontSize: "1.2rem", padding: '2px 20px 2px 20px'}}
+              onClick={setProduct}
             >
               Add to Cart
             </button>            
@@ -391,10 +372,10 @@ const PostDetail = () => {
         </div>
         <div className="row" id="product-details" style={{ display: "none" }}>
           <p>
-            <strong>Brand:</strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.brand}
+            <strong>Category:</strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.category}
           </p>
           <p>
-            <strong>Sleeve:</strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.sleeve}
+            <strong>Highlight:</strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.highlight}
           </p>
         </div>
         <hr className="mt-0 pt-0" />
@@ -432,8 +413,7 @@ const PostDetail = () => {
         </div>
         <div className="row" id="size" style={{ display: "none" }}>
           <p>
-            <strong>Sized: </strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.size[0]}
-            &nbsp;-&nbsp;{post.size[post.size.length - 1]}
+            <strong>Size: </strong>&nbsp;&nbsp;&nbsp;&nbsp;{post.size}
           </p>
         </div>
         <hr className="mt-0" />

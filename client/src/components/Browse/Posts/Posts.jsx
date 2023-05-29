@@ -20,16 +20,26 @@ const Posts = ({item}) => {
             null
         }
         <div className='card-body'>
-            <h5 className='card-title' style={{overflow: 'hidden'}}>{item.name}</h5>
-            {
-                item.sale_price? <>
-                    <span className='card-text actual-price'>Rs. {item.actual_price}</span>
-                    <span className='card-text'>&nbsp;&nbsp;&nbsp;Rs. {item.sale_price}</span>
-                </>:
-                <>
-                    <p className='card-text'>Rs. {item.actual_price}</p>
-                </>
-            }
+            <div className='row'>
+                <div className='col-6'>
+            <h5 className='card-title' style={{overflow: 'hidden'}}>{item.title}</h5>
+                </div>
+                <div className='col-6'>
+            <h6 className='card-title text-end' style={{overflow: 'hidden', color: '#f2a154'}}>{item.highlights}</h6>
+                </div>
+            </div>
+            <div className='row mt-2'>
+                <div className='col-10 card-text'>
+                    <span  style={{fontWeight: '500'}}>Rental Price:&nbsp;&nbsp;&nbsp;</span>
+                    <span style={{color: 'red', fontWeight: '600'}}>Rs. {item.rentingPrice} </span>
+                </div>
+            </div>
+            <div className='row mt-2'>
+                <div className='col-10 card-text'>
+                    <span  style={{fontWeight: '500'}}>Size:&nbsp;&nbsp;</span>
+                    <span style={{ fontWeight: '600'}}>{item.size} </span>
+                </div>
+            </div>
         </div>
     </div>
   )

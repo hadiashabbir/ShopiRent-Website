@@ -15,76 +15,51 @@ const Cart = () => {
   const [subTotal, setSubTotal] = useState(null);
   const [discount, setDiscount] = useState(null);
   const [total, setTotal] = useState(null);
-  const [cartData, setCartData] = useState([
-    {
-      name: "Plain T-shirt",
-      description: "Female plain T-shirt with high qaulity fabric",
-      price: 8900.0,
-      size: "M",
-      color: "yellow",
-      number_of_items: 4,
-      quantity: 1
-    },
-    {
-      name: "Plain T-shirt",
-      description: "Female plain T-shirt with high qaulity fabric",
-      price: 8900.0,
-      size: "M",
-      color: "yellow",
-      number_of_items: 4,
-      quantity: 1
-    },
-    {
-      name: "Plain T-shirt",
-      description: "Female plain T-shirt with high qaulity fabric",
-      price: 8900.0,
-      size: "M",
-      color: "yellow",
-      number_of_items: 4,
-      quantity: 1
-    },
-  ]);
+  const [data, setData] = useState([]);
+  const [DeleteFlag, setDeleteFlag] = useState(0);
+  
+useEffect(() => {
+let allItems = [];
+for(var index=0; index < localStorage.length; index++) {
+var key = localStorage.key(index);
+var item = JSON.parse(localStorage.getItem(key))
+if(data.indexOf(item) === -1) {
+allItems.push(item);
+}
+}
+setData(allItems);
+}, [DeleteFlag])
 
-  const [voucher, SetVoucher] = useState(20);
-
-  useEffect(() => {
-    calculateSubtotal();
-    calculateDiscount();
-    calculateTotal();
-  })
-
-  const calculateSubtotal = () => {
-    let sub_total = 0
-    cartData.map((item) => {
-        sub_total += (item.price * item.quantity)   
-    })
-    setSubTotal(sub_total)
-  }
-
-  const calculateDiscount = () => {
-    let discount = subTotal * voucher/100;
-    setDiscount(discount);
-  }
-
-  const calculateTotal = () => {
-    let total = subTotal-discount;
-    setTotal(total);
-  }
 
   const decrementQuantity = (_quantity, index) => {
     let new_quantity = 0;
     if (_quantity > 0) {
         new_quantity = _quantity - 1;
     }
-    const newState = cartData.map((item, i) => {
+    const newState = data.map((item, i) => {
         if(index === i) {
-            return {name: item.name, description: item.description, price: item.price, size: item.size, color: item.size, number_of_items: item.number_of_items, quantity: new_quantity}
+            return {
+              image: [],
+              name: item.name,
+              description: item.description,
+              sale_price: item.sale_price,
+              rent_sale_price: item.rent_sale_price,
+              actual_price: item.actual_price,
+              rent_price: item.rent_price,
+              sale: item.sale,
+              highlight: item.highlight,
+              category: item.category,
+              size: item.size,
+              securityDeposit: item.securityDeposit,
+              quantity: new_quantity,
+              number_of_items: item.number_of_items
+            }
         }
 
         return item;
     })
 
-    setCartData(newState);
+    setData(newState);
   }
 
   const incrementQuantity = (_quantity, index, no_of_items) => {
@@ -92,15 +67,35 @@ const Cart = () => {
     if (_quantity < no_of_items) {
         new_quantity = _quantity + 1;
     }
-    const newState = cartData.map((item, i) => {
+    const newState = data.map((item, i) => {
         if(index === i) {
-            return {name: item.name, description: item.description, price: item.price, size: item.size, color: item.size, number_of_items: item.number_of_items, quantity: new_quantity}
+            return {    image: [],
+              name: item.name,
+              description: item.description,
+              sale_price: item.sale_price,
+              rent_sale_price: item.rent_sale_price,
+              actual_price: item.actual_price,
+              rent_price: item.rent_price,
+              sale: item.sale,
+              highlight: item.highlight,
+              category: item.category,
+              size: item.size,
+              securityDeposit: item.securityDeposit,
+              quantity: new_quantity,
+              number_of_items: item.number_of_items
+            }
         }
 
         return item;
     })
 
-    setCartData(newState);
+    setData(newState);
+  }
+
+  const DeleteItem = (id) => {
+    console.log(id)
+    localStorage.removeItem(id);
+    setDeleteFlag(1);
   }
 
   return (
@@ -111,7 +106,7 @@ const Cart = () => {
         <div className="card" style={{borderRadius: '0'}}>
           <div className="card-header" style={{backgroundColor: '#f2a154', color: 'white',fontWeight: '500', fontSize: '1.1rem', borderRadius: '0', border: 'none'}}>Items in your cart</div>
           <div className="card-body mt-3">
-            {cartData.map((item, i) => (
+            {data.map((item, i) => (
                 <>
               <div className="row mb-2">
                 <div className="col-lg-2 col-3">
@@ -123,63 +118,36 @@ const Cart = () => {
                   <span className="card-text">
                     <strong >Size: </strong>&nbsp;{item.size}&nbsp;&nbsp;&nbsp;
                   </span>
-                  <span className="card-text">
-                    <strong>Color: </strong>&nbsp;{item.color}
-                  </span>
                 </div>
                 <div className="col-lg-5 col-xl-4 offset-3 offset-lg-0 text-lg-end">
                   <span className="card-text">
-                    <strong>Price: </strong>&nbsp;Rs. {item.price}
+                    <strong>Price: </strong>&nbsp;Rs. {item.rent_price}
                   </span>
                   <p className="card-text mt-2 mb-2"><strong>Quantity: &nbsp;</strong><RemoveIcon style={{color: '#f2a154'}} fontSize="small" onClick={() => decrementQuantity(item.quantity, i)}/>&nbsp;{item.quantity}&nbsp;<AddIcon style={{color: '#f2a154'}} fontSize="small" onClick={() => incrementQuantity(item.quantity, i, item.number_of_items)}/></p>
-                  <DeleteOutlineSharpIcon/>
+                  <span>
+                  <Link to='/checkout'>
+                  <button
+              type="button"
+              className="btn btn-primary btn-sm me-3"
+              style={{ fontSize: "0.8rem"}}
+            >
+              Buy Now
+            </button>            
+              </Link>
+                  </span>
+                  <span><DeleteOutlineSharpIcon onClick={() => DeleteItem(item.id)}/></span>
                 </div>
               </div>
               {
-                i === cartData.length - 1? null : <hr className="mb-4"/>
+                i === data.length - 1? null : <hr className="mb-4"/>
               }
             </>
             ))}
           </div>
         </div>
       </div>
-      <div className="col-lg-3 col-10 offset-1 offset-lg-0 mt-5 mt-lg-0">
-      <div className="card" style={{borderRadius: '0'}}>
-          <div className="card-header" style={{backgroundColor: '#f2a154', color: 'white',fontWeight: '500', fontSize: '1.1rem', borderRadius: '0', border: 'none'}}>Summary</div>
-          <div className="card-body">
-            <label htmlFor="offer" style={{fontWeight: '500'}}>Apply a voucher</label>
-            <div className="row mt-2 align-items-center">
-            <div className="col-7">
-            <input class="form-control form-control-sm" type="text" placeholder="Coupon Code" aria-label=".form-control-sm example"/>            </div>
-            <div className="col-5 text-end">
-            <button className="btn btn-primary apply-button">Apply</button>
-            </div>
-            </div>
-            <hr />
-            <div className="row gx-0">
-            <div className="col-6">
-            <p style={{fontSize: '1.2rem'}}><strong>Sub-Total </strong></p>
-            <p style={{fontSize: '1.2rem'}}><strong>Discount </strong></p>
-            <hr />
-            <p style={{fontSize: '1.2rem'}}><strong>Total </strong></p>
-            </div>
-            <div className="col-6">
-            <p className="text-end" style={{fontSize: '1.2rem'}}>Rs. {subTotal}</p>
-            <p className="text-end" style={{fontSize: '1.2rem'}}>- Rs. {discount}</p>
-            <hr />
-            <p className="text-end" style={{fontSize: '1.2rem'}}>Rs. {total}</p>
-            </div>
-            </div>
-
-            <div className="row mt-3 text-center">
-                <div className="col-10 offset-1">
-                    <Link to='/checkout'><button className="btn btn-primary checkout-button">Checkout</button></Link>
-                </div>
-            </div>
-          </div>
-          </div>
-
-          <div className="card mt-3" style={{borderRadius: '0'}}>
+      <div className="col-lg-3 col-10 offset-1 offset-lg-0">
+          <div className="card" style={{borderRadius: '0'}}>
           <div className="card-header" style={{backgroundColor: '#f2a154',color: 'white',fontWeight: '500', fontSize: '1.1rem', borderRadius: '0', border: 'none'}}>Support</div>
           <div className="card-body mt-3">
             <p className="card-text text-center" style={{fontWeight: '500', fontSize: '1.1rem'}}><CallIcon/>&nbsp;&nbsp;&nbsp;+92-322-4562345</p>

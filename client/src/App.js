@@ -1,6 +1,5 @@
-import { useEffect, useState} from "react";
+import { useState} from "react";
 
-import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
@@ -13,7 +12,6 @@ import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 import PostDetail from "./components/PostDetail/PostDetail";
 import Checkout from "./components/Checkout/Checkout";
 import Contact from "./components/Contact/Contact";
-import HideHeader from './HideHeader';
 
 
 function App() {
